@@ -15,8 +15,7 @@ def MakeCert(userId):
     ca = x509.load_pem_x509_certificate(pem_cert, default_backend())
 
     pem_key = open('Certificates/ca.key','rb').read()
-    ca_key = serialization.load_pem_private_key(pem_key, password=None, 
-            backend = default_backend())
+    ca_key = serialization.load_pem_private_key(pem_key, password=None, backend=default_backend())
 
     builder = x509.CertificateBuilder()
     builder = builder.subject_name(csr.subject)

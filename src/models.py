@@ -1,3 +1,5 @@
+#CREATION DE LA STRUCTURE DES TABLES DE LA BD
+
 from flask_login import UserMixin
 from . import db
 from datetime import datetime
@@ -7,7 +9,6 @@ class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
     surname = db.Column(db.String(50), nullable=False)
-
     pseudo = db.Column(db.String(50), unique=True, nullable=False)
     createAt = db.Column(db.TIMESTAMP, default=datetime.now, nullable=False)
     image_file = db.Column(db.String(50), nullable=False, default='default.png')

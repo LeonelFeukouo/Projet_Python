@@ -19,11 +19,9 @@ def MakeReq(userId, pseudo):
     builder = builder.subject_name(x509.Name([
         x509.NameAttribute(NameOID.EMAIL_ADDRESS, mail),
         ]))
-
     builder = builder.add_extension(
         x509.BasicConstraints(ca=False, path_length=None), critical=True,        
     )
-
     request = builder.sign(
         private_key, hashes.SHA256(), default_backend()
     )

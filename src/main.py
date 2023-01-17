@@ -1,3 +1,5 @@
+# INTERFACES PRINCIPALE DE MESSAGERIE
+
 from flask import Blueprint, render_template, url_for, redirect, request
 from flask_login import login_required, current_user
 from sqlalchemy import or_
@@ -19,23 +21,9 @@ def index(username=None):
     included_parts = Message.query.filter(Message.destination_id == current_user.get_id()).all()
     print(included_parts)
     contact = search_contact(patern=current_user.get_id())
-    '''
-    query = sqlalchemy.select([
-        BOOKS.c.genre,
-        sqlalchemy.func.count(BOOKS.c.genre)
-    ]).group_by(BOOKS.c.genre)
-
-    # get all the records
-    result = engine.execute(query).fetchall()
-    '''
     if username is not None:
         return render_template("detail.html", contacts=contact, messages=response_message)
     return render_template("home.html", contacts=contact)
-
-
-@main.route("/check_credential")
-def check_credential():
-    return redirect(url_for('home'))
 
 
 @main.route("/search_discussion", methods=['POST'])
@@ -58,11 +46,6 @@ def search_discussion():
     response_message['message'] = messageDecrypted
     print(resultat)
     return redirect(url_for('main.index', username=(str(select))))
-
-
-# @main.route("/messi/discussion")
-# def detail():
-#     return render_template("detail.html", title='topic')
 
 
 @main.route("/search/<patern>")

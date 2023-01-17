@@ -43,7 +43,6 @@ def authenticated_only(f):
             disconnect()
         else:
             return f(*args, **kwargs)
-
     return wrapped
     pass
 

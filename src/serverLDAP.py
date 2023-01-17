@@ -87,31 +87,24 @@ def Supprimer(userId):
 def user_authentication(server, name, pwd):
     try:
         print(Initialiser(server))
-
         AuthentifierUser(name, pwd)
-
         Deconnecter()
-
     except ldap.INVALID_CREDENTIALS:
-        return "Login ou mot de passe incorrect"
-
+        return "veillez verifier vos information et recommencer encore !"
     except ldap.LDAPError as e:
-        return f'Erreur ldap :  {e}'
+        print(f'Erreur ldap :  {e}')
+        return "veillez verifier vos information et recommencer encore !"
     return True
 
 
 def user_add(server, userId, userCn, userSn, userPass):
     try:
         print(Initialiser(server))
-
         Authentifier('admin', 'leonel')
         Ajouter(userId, userCn, userSn, userPass)
-
         Deconnecter()
-
     except ldap.INVALID_CREDENTIALS:
         return "Login ou mot de passe incorrect for admin user"
-
     except ldap.LDAPError as e:
         return f'Erreur ldap :  {e}'
     return True

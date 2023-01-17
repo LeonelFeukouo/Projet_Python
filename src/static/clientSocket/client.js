@@ -1,20 +1,13 @@
 const sio = io();
 
 sio.on('connect',() =>{
-    console.log('client connected'+ sio.id);
-    sio.emit('sum', {sid: sio.id, numbers: [1, 2]});
-    sio.emit('sum2', {sid: sio.id, numbers: [6, 2]}, (result) =>{
-        console.log(result)
-    });
+    console.log('client connected '+ sio.id);
 });
 
 sio.on('disconnect',() =>{
     console.log('client disconnected')
 });
 
-sio.on('sum_result', (data)=>{
-    console.log(data)
-})
 
 sio.on('status', (data)=>{
     console.log(data)
@@ -57,16 +50,9 @@ sio.on('i_send_message', (data)=>{
             </div>
         </div>
         `
-    // console.log(document.getElementById('message_test'))
     document.getElementById('message_test').innerHTML +=element;
 })
 
-sio.on('mult', (data, callback)=>{
-    console.log(data);
-    const result = data.numbers[0] * data.numbers[1];
-    callback(result)
-
-})
 
 sio.on('client_count', (count)=>{
     console.log('There are '+ count + ' connected clients.');
@@ -77,15 +63,13 @@ sio.on('room_count', (count)=>{
 })
 
 const send= document.getElementById("ContenuMessage");
-function send_message()
-{
+function send_message() {
     var text= document.getElementById("ContenuMessage").value;
     var author= document.getElementById("author").value;
     var dest = document.getElementById("dest").value;
     var dest_pseudo = document.getElementById("dest_pseudo").value;
     document.getElementById("ContenuMessage").value='';
     sio.emit('text', {msg: text, from: author, dest:dest, room:dest_pseudo});
-
 }
 
 function  contact(pseudo){
@@ -101,5 +85,4 @@ function  contact(pseudo){
     document.body.appendChild(form);
 
     form.submit();
-    // document.getElementById('form-search').submit()
 }

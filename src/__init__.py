@@ -1,3 +1,6 @@
+# FICHIER DE CONFIGURATION QUI PERMET D'APPELER TOUS LES SOUS MODULES
+# POUR LE BON FONCTIONNEMENT DU PROJET
+# C'EST LE DEUXIEME FICHIER QUI EST APPELER
 from flask import Flask
 from flask_session import Session
 from flask_sqlalchemy import SQLAlchemy
@@ -10,12 +13,14 @@ socketio = SocketIO(manage_session=False)
 session = Session()
 
 def create_app(debug=False):
+    # VARIABLES DENVIRONNEMENTS DE FLASK
     app = Flask(__name__)
-
     app.config['SECRET_KEY'] = 'mysecretkey'
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///tchat.sqlite3'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
     app.config['SESSION_TYPE'] = 'filesystem'
+    ####
+
     db.init_app(app)
     login_manager = LoginManager()
     login_manager.login_view = 'auth.login'
