@@ -13,7 +13,7 @@ sudo apt install -y python3.11-dev python3.11-venv python3.11-distutils python3.
 python -m venv venv
 . venv/bin/activate
 
-#Installer les bibliotheques nécessaire du projets.
+#Installer les bibliotheques nécessaire du projets
 pip install setuptools wheel twine rsa
 pip install -r requirements.txt
 
