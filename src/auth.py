@@ -56,6 +56,12 @@ def signup_post():
     surname = request.form.get('surname')
     pseudo = request.form.get('pseudo')
     password = request.form.get('password')
+    cpassword = request.form.get('cpassword')
+
+    if password != cpassword:
+        flash(f'Les mots de passe ne correspondent pas', 'danger')
+        return redirect(url_for('auth.signup'))
+
     pattern = re.compile("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$")
     if not bool(pattern.match(password)):
         flash(f'Le mot de passe doit contenir minimum 8 caracteres, minimum 1 caractere numerique, ', 'danger')
