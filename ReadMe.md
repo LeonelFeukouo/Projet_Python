@@ -1,4 +1,4 @@
-# PROJET CHAT PYTHON
+# PROJET DE TCHAT PYTHON
 
 ## Video detaillée du projet
 
