@@ -8,6 +8,7 @@
 
 Après l'avoir cloné, entrer dans la racine du projet
 
+    sudo apt-get update
     sudo apt install -y software-properties-common
     sudo add-apt-repository ppa:deadsnakes/ppa
     sudo apt update
