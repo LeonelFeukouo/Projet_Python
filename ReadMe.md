@@ -1,4 +1,4 @@
-# PROJET CHAT PYTHON
+# PROJET DE TCHAT PYTHON
 
 ## Installer les outils necessaire pour le projet
 
