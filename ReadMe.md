@@ -1,5 +1,9 @@
 # PROJET CHAT PYTHON
 
+## Video detaillée du projet
+
+<https://www.loom.com/share/40a6574620e24ad98ae2678ad856e003>
+
 ## Installer les outils necessaire pour le projet
 
 Après l'avoir cloné, entrer dans la racine du projet
@@ -33,4 +37,4 @@ Après l'avoir cloné, entrer dans la racine du projet
 
     python chat.py
 
-Utiliser obligatoirement l'adresse IP 127.0.0.1 --> <https://127.0.0.1:5000> dans le navigateur, ou alors, modifier uniquement cette adresse IP dans le fichier src/static/js/choice.js. C'est cette adresse qui permet de faire la recherche d'un utilisateur dans la base de données
+Utiliser obligatoirement l'adresse IP 127.0.0.1 --> <https://127.0.0.1:5000> dans le navigateur, ou alors, modifier uniquement cette adresse IP dans le fichier src/static/js/choice.js. C'est cette adresse qui permet de faire la recherche d'un utilisateur dans la base de données.
