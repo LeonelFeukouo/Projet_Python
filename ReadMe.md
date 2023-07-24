@@ -36,6 +36,8 @@ Après l'avoir cloné, entrer dans la racine du projet
 
 ## Lancer l'application dans le terminal
 
-    python chat.py
+    //python chat.py
+    export FLASK_APP=chat.py
+    flask run --host 0.0.0.0
 
 Utiliser obligatoirement l'adresse IP 127.0.0.1 --> <https://127.0.0.1:5000> dans le navigateur, ou alors, modifier uniquement cette adresse IP dans le fichier src/static/js/choice.js. C'est cette adresse qui permet de faire la recherche d'un utilisateur dans la base de données.
